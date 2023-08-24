@@ -7,3 +7,6 @@
 - p01-hola-mundo
 - p02-paga-trabajador
 - p03-venta-pizzas
+- p04-procesa-calificaciones
+- p05-tabla-conversion
+- p06-factorial-numeros
