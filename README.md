@@ -10,3 +10,4 @@
 - p04-procesa-calificaciones
 - p05-tabla-conversion
 - p06-factorial-numeros
+- p07-estadisticas
