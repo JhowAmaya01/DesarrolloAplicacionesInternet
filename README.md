@@ -11,3 +11,9 @@
 - p05-tabla-conversion
 - p06-factorial-numeros
 - p07-estadisticas
+- p08-distancia-puntos 
+- p09-volumen-esfera
+- p10-calificaciones
+- p11-venta-articulos
+
+- p12-numeros-arreglo 
