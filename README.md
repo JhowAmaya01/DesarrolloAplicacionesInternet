@@ -28,3 +28,7 @@
 - p16-control-ventas-v1 
 - p16-control-ventas-v2
 - p17-primer-examen-parcial
+## Actividad 6
+- p18-linq1
+- p19-linq2
+- p20-linq3
