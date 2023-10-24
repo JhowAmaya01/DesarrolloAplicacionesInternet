@@ -48,7 +48,7 @@
 <div class="row">
 <div class="col-md-4">
 <div class="form-group">
-<input type="button" class="btn btn-primary" @onclick="@Grabar" value="Grabar"/>
+<input type="submit" class="btn btn-primary" value="Grabar"/>
 <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancelar"/>
 </div>
 </div>
@@ -66,11 +66,11 @@ protected void Grabar() {
 if(empleadoServicio.AgregarActualizar(emp)) {
 mensaje = "Agregado exitosamente ";
 } else mensaje = "No pudo agregarse";
-NavigationManager.NavigateTo("empleados");
+NavigationManager.NavigateTo("empleados",forceLoad:true);
 }
 void Cancel()
 {
-NavigationManager.NavigateTo("empleados");
+NavigationManager.NavigateTo("empleados",forceLoad:true);
 }
 protected override void OnInitialized()
 {

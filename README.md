@@ -40,3 +40,5 @@
 - p24-ToDoList
 ## Actividad 9
 - p25-crud
+## Tarea 3
+- p26-crud-jugador
