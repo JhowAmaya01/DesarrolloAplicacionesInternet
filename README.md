@@ -27,6 +27,7 @@
 ## Tarea 2
 - p16-control-ventas-v1 
 - p16-control-ventas-v2
+## Primer Examen Parcial
 - p17-primer-examen-parcial
 ## Actividad 6
 - p18-linq1
@@ -42,3 +43,5 @@
 - p25-crud
 ## Tarea 3
 - p26-crud-jugador
+## Segundo Examen Parcial
+- p27-segundo-examen-parcial
