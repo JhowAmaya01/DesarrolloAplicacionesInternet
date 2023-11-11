@@ -1,0 +1,81 @@
+@* Pages/Reservas.razor *@
+@page "/reservas"
+@inject ReservaServicio reservaServicio
+@inject IJSRuntime jsRuntime
+<h3>Reservas</h3>
+<NavLink class="nav-link" href="reserva/agregar">
+    <span class="oi oi-plus" aria-hidden="true">Agregar reserva</span>
+</NavLink>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th>Nombre completo</th>
+            <th>Tipo - No Hab - Piso- Costo</th>
+            <th>Inicio Reserva</th>
+            <th>Fin Reserva</th>
+            <th>Días reservados</th>
+            <th>Costo total</th>
+            <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reserva in reservas) {
+                <tr>
+                <td>@reserva.Cliente.NombreCompleto</td>
+                <td>@reserva.ToString()</td>
+                <td>@reserva.InicioReserva.ToString("dd-MM-yyyy")</td>
+                <td>@reserva.FinReserva.ToString("dd-MM-yyyy")</td>
+                <td>@reserva.DiasReservados.ToString("dd")</td>
+                <td>@reserva.Total</td>
+                <td>
+
+                <a href="reserva/editar/@reserva.ReservaID" class="btn btn-success">Editar</a>
+
+                <a class="btn btn-danger" @onclick="async ()=> await
+                Borrar(reserva)">Borrar</a>
+                </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+        <p>Total de reservas = @TotRes().ToString()</p> <! Aqui va algo para mostrar el total>
+        <p>Total de días reservados = @TotDias().ToString()</p> 
+        <p>Total de ingresos = @TotCos().ToString("C2")</p>
+
+    </div>
+</div>
+
+@code {
+    private List<Reserva> reservas = new();
+    protected override void OnInitialized(){
+        reservas = reservaServicio.ObtenerTodo();
+    }
+    private async Task Borrar(Reserva reserva) {
+        bool confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Estas seguro????");
+        if (confirmed)
+        if(reservaServicio.Borrar(reserva.ReservaID))
+        reservas.Remove(reserva);
+    }
+    private double TotRes() {
+        return reservaServicio.Total();
+    }
+
+    private double TotDias() {
+        double tot = 0;
+        foreach(var reservas in reservas){
+            tot += reservas.TotDiasRes;
+        }
+        return tot;
+    }
+    private double TotCos() {
+        double tot = 0;
+        foreach(var reservas in reservas){
+            tot += reservas.Total;
+        }
+        return tot;
+    }
+    
+}
