@@ -22,7 +22,15 @@ public class Reserva{
     public double TotDiasRes{
         get{return DiasReservados.TotalDays;}
     }
-    public override string ToString() => $"{Habitacion.Tipo}-{Habitacion.NoHabitacion}-{Habitacion.Piso}-{Habitacion.Costo}";
+    [Display(Name = "Hab")]
+    public string Hab {
+    get { return Habitacion.Tipo + " - " + Habitacion.NoHabitacion + " - " + Habitacion.Piso + " - " + Habitacion.Costo; }
+    }
+    [Display(Name = "Nombre Completo 2")]
+    public string NombreCompleto2 {
+    get { return Cliente.Nombre + " " + Cliente.Apellido; }
+    }
+    //public override string cad() => $"{Habitacion.Tipo}-{Habitacion.NoHabitacion}-{Habitacion.Piso}-{Habitacion.Costo}";
 
 }
 

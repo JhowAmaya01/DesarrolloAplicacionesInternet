@@ -11,4 +11,8 @@ public class Habitacion {
     [Required,Range(1, 5000)]
     public double Costo { get; set; }
     public ICollection<Reserva> Reservas { get; set; }
+    [Display(Name = "Hab")]
+    public string Hab {
+    get { return "Tipo:" +Tipo + " -No. habitacion" + NoHabitacion + " -Piso:" + Piso + " -Costo: $" + Costo; }
+    }
 }

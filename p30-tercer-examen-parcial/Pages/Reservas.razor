@@ -25,7 +25,7 @@
             @foreach (var reserva in reservas) {
                 <tr>
                 <td>@reserva.Cliente.NombreCompleto</td>
-                <td>@reserva.ToString()</td>
+                <td>@reserva.Hab</td>
                 <td>@reserva.InicioReserva.ToString("dd-MM-yyyy")</td>
                 <td>@reserva.FinReserva.ToString("dd-MM-yyyy")</td>
                 <td>@reserva.DiasReservados.ToString("dd")</td>
